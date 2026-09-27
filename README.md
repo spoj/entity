@@ -6,7 +6,7 @@ Left alone, long-running agents lose track: they rewrite their notes, forget whe
 
 ## The model
 
-- **Charter** (`README.md`). Who the entity is, its purpose, and where things live. There is no special owner. Who is who, and whom it answers to for what, follows from its obligations and its history.
+- **Charter** (`README.md`). Who the entity is, what it optimizes for, and where things live. There is no special owner. Who is who, and whom it answers to for what, follows from its obligations and its history.
 - **Obligations** (`OBLIGATIONS.md`). The only state. Every open promise, in or out:
   - what others promised us, and what we promised others;
   - one-off promises, and standing ones such as access granted, licences, scheduled jobs and delegations.
@@ -14,7 +14,7 @@ Left alone, long-running agents lose track: they rewrite their notes, forget whe
   Each line has a next trigger date and quotes its source. Every entry is a promise to keep it current, so the file stays small.
 - **Channel** (`channel/`). The memory: append-only posts that keep evidence at stable addresses, following [spoj/posts](https://github.com/spoj/posts). It grows freely and is searched when needed.
 
-**Aim:** the most useful output for the finite resources it uses, such as agent time, money, people's attention and quotas. Whichever is scarcest sets the pace.
+**Objective:** each entity states its own in its charter.
 
 **Loop:** a clock wakes the agent. It is pull-based: each run does three things.
 
@@ -30,7 +30,7 @@ Nothing else drives work. The entity's own duties are obligations too, such as "
 - **Dependencies that can fail silently:** register our own promise to check them.
 - **Whatever is still open when a run ends,** however small. Anything finished within the run is not registered.
 
-**Limits:** each line may cap any finite resource it will use, such as agent time, money or a person's screens and decisions. Ask before breaking one.
+**Limits:** a line may carry limits. Ask before breaking one.
 
 ## Set up
 
@@ -47,7 +47,7 @@ To set up an entity at the requested path:
 ## More than one loop
 
 - **Separate working copies.** Give each loop its own Git worktree, or share one folder and coordinate with [letmeknow](https://github.com/spoj/letmeknow) folder groups.
-- **Claims.** A loop claims a line by committing `claimed: <loop> until <time>` and pushing; a rejected push means someone else got it. The claim expires after the line's agent-time limit.
+- **Claims.** A loop claims a line by committing `claimed: <loop> until <time>` and pushing; a rejected push means someone else got it. The claim expires after the line's time limit.
 - **Teams.** Each team keeps its own register. The level above derives its view from theirs, cancelling matched in/out pairs between teams, the way group accounts eliminate intercompany balances.
 
 Related ideas: social commitments (Singh and Chopra), The Coordinator (Winograd and Flores), promise theory (Burgess), and Kubernetes' level-triggered reconciliation.
