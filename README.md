@@ -14,7 +14,7 @@ Left alone, long-running agents lose track: they rewrite their notes, forget whe
   Each line has a next trigger date and quotes its source. Every entry is a promise to keep it current, so the file stays small.
 - **Channel** (`channel/`). The memory: append-only posts that keep evidence at stable addresses, following [spoj/posts](https://github.com/spoj/posts). It grows freely and is searched when needed.
 
-**Aim:** the most useful output per minute of the human attention it uses. People's reading and decisions are the scarce resource; agent time is a budget.
+**Aim:** the most useful output for the finite resources it uses, such as agent time, money, people's attention and quotas. Whichever is scarcest sets the pace.
 
 **Loop:** a clock wakes the agent. It is pull-based: each run does three things.
 
@@ -30,7 +30,7 @@ Nothing else drives work. The entity's own duties are obligations too, such as "
 - **Dependencies that can fail silently:** register our own promise to check them.
 - **Whatever is still open when a run ends,** however small. Anything finished within the run is not registered.
 
-**Limits:** each line may carry limits, such as agent time or a person's screens and decisions. Ask before breaking one.
+**Limits:** each line may cap any finite resource it will use, such as agent time, money or a person's screens and decisions. Ask before breaking one.
 
 ## Set up
 
