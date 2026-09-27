@@ -12,4 +12,4 @@ To set up an entity at the requested path:
    - communication: [letmeknow](https://github.com/spoj/letmeknow).
 3. Run `loop.sh` in the background, e.g. with tmux, a service or a logon task. `AGENT` selects the command, default `pi -p`, and the prompt is appended as its last argument.
 
-The loop wakes the agent every 10 minutes and re-reads itself each round, so the entity may change it; an edit that breaks it stops the loop. Keep credentials and spend caps outside anything the entity can edit. The script needs a POSIX shell, `timeout` and `realpath`: Linux, WSL or Git Bash.
+Each round, `loop.sh` runs the agent in a fresh session (at most 3 hours), rests 10 minutes, then re-executes itself. Its body is one `{ }` block, parsed whole before it runs, so the entity may edit the script and changes apply from the next round. An edit that breaks it stops the loop. Keep credentials and spend caps outside anything the entity can edit. The script needs a POSIX shell, `timeout` and `realpath`: Linux, WSL or Git Bash.
